@@ -2,6 +2,21 @@
 
 JasperReports/Rails integration using Rjb (Ruby Java Bridge)
 
+#Forked from https://github.com/fortesinformatica/jasper-rails
+#Added support for supply direct database connection
+
+#Add to your database.yml file something like below for each of your configuration:
+
+  development:
+    adapter: mysql2
+    database: my_database
+    username: user_name
+    password: my_password_here
+    host: localhost
+    jdbc:
+      connection: jdbc:mysql://localhost/dius_timesheet
+      driver: com.mysql.jdbc.Driver
+
 # News!
 - jasper-rails 2.0.0.beta1 released!
 
