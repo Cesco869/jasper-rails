@@ -29,6 +29,13 @@ module JasperRails
         end
   
         response_options = JasperRails.config[:response_options].merge(:type => options[:mime_type])
+        if self.options.key?(:disposition)
+          response_options[:disposition] = self.options[:disposition]
+        end
+        if self.options.key?(:filename)
+          response_options[:filename] = self.options[:filename]
+        end
+
         controller.send_data renderer.render(jasper_file, resource, params, self.options), response_options
       end
     end
