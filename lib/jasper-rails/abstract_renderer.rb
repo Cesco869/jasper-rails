@@ -13,7 +13,7 @@ module JasperRails
         Mime::Type.register options[:mime_type], file_extension.to_sym
       end
       
-      ActionController::Responder.send(:define_method, "to_#{file_extension}") do
+      ActionController::Renderers.send(:define_method, "to_#{file_extension}") do
         if template_name = self.options[:template]
         else
           template_name = "#{controller.controller_path}/#{controller.action_name}"
